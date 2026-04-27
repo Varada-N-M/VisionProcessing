@@ -1,37 +1,37 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Instrument+Serif:ital,wght@0,400..900;1,400..900&display=swap');
 
 :root {
-  /* Professional Corporate Light Palette */
-  --bg-base: #f8fafc;
+  /* Refined Light Palette */
+  --bg-base: #fcfcfd;
   --bg-surface: #ffffff;
-  --bg-surface-hover: #f1f5f9;
-  --border: #e2e8f0;
-  --border-focus: #94a3b8;
+  --bg-surface-hover: #f8fafc;
+  --border: #f1f5f9;
+  --border-focus: #e2e8f0;
   
-  --accent-primary: #2563eb;
-  --accent-secondary: #3b82f6;
+  --accent-primary: #4f46e5; /* Modern Indigo */
+  --accent-secondary: #6366f1;
   
   --text-primary: #0f172a;
   --text-secondary: #475569;
-  --text-tertiary: #64748b;
+  --text-tertiary: #94a3b8;
 
   --emerald: #10b981;
-  --emerald-glass: rgba(16, 185, 129, 0.1);
+  --emerald-glass: rgba(16, 185, 129, 0.05);
   --gold: #f59e0b;
-  --gold-glass: rgba(245, 158, 11, 0.1);
+  --gold-glass: rgba(245, 158, 11, 0.05);
   --rose: #ef4444;
-  --rose-glass: rgba(239, 68, 68, 0.1);
+  --rose-glass: rgba(239, 68, 68, 0.05);
 
-  /* Sharper Professional Radii */
-  --radius-sm: 4px;
-  --radius-md: 6px;
-  --radius-lg: 8px;
-  --radius-xl: 12px;
+  /* Refined Radii */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
   
-  /* Soft Realistic Shadows */
-  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.05), 0 2px 4px -2px rgb(0 0 0 / 0.05);
-  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.05);
+  /* Soft High-End Shadows */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.02);
+  --shadow-md: 0 10px 30px -10px rgba(0, 0, 0, 0.05);
+  --shadow-lg: 0 20px 50px -12px rgba(0, 0, 0, 0.08);
 }
 
 * {
@@ -49,8 +49,9 @@ body {
 }
 
 h1, h2, h3, .serif {
-  font-weight: 600;
-  letter-spacing: -0.025em;
+  font-family: 'Instrument Serif', serif;
+  font-weight: 500;
+  letter-spacing: -0.01em;
   color: var(--text-primary);
 }
 
@@ -461,51 +462,63 @@ audio::-webkit-media-controls-time-remaining-display {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: calc(100vh - 100px);
+  min-height: calc(100vh - 120px);
   text-align: center;
-  padding: 4rem 1rem;
+  padding: 6rem 1rem;
+  background: radial-gradient(circle at top, rgba(79, 70, 229, 0.03) 0%, transparent 50%);
 }
 
 .hero-title {
-  font-size: 3.5rem;
-  line-height: 1.1;
-  margin-bottom: 1.5rem;
-  font-weight: 700;
-  letter-spacing: -0.04em;
+  font-size: 4.5rem;
+  line-height: 1;
+  margin-bottom: 2rem;
+  font-weight: 500;
   color: var(--text-primary);
 }
 
 .hero-subtitle {
-  font-size: 1.1rem;
+  font-size: 1.25rem;
   color: var(--text-secondary);
-  max-width: 600px;
-  margin: 0 auto 3rem auto;
-  line-height: 1.6;
+  max-width: 650px;
+  margin: 0 auto 3.5rem auto;
+  line-height: 1.7;
+  font-weight: 400;
 }
 
 .feature-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 2rem;
   margin-top: 4rem;
   width: 100%;
-  max-width: 1000px;
+  max-width: 1100px;
 }
 
 .feature-card {
   background: var(--bg-surface);
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
-  padding: 2rem;
+  padding: 3rem 2rem;
   text-align: left;
-  transition: all 0.2s;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   box-shadow: var(--shadow-sm);
 }
 
 .feature-card:hover {
-  border-color: var(--border-focus);
-  box-shadow: var(--shadow-md);
-  transform: translateY(-2px);
+  border-color: var(--accent-primary);
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-4px);
+}
+
+.shimmer {
+  background: linear-gradient(90deg, var(--bg-surface-hover) 25%, var(--border) 50%, var(--bg-surface-hover) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
 }
 
 /* Auth Pages */
