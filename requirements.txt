@@ -3,7 +3,8 @@
 # azure-monitor-opentelemetry
 
 azure-functions
-
+flask
+flask-cors
 # Microsoft Agent Framework (pinned for stability)
 agent-framework-core==1.0.0b260107
 agent-framework-azure-ai==1.0.0b260107
