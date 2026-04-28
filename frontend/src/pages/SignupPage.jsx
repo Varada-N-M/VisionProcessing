@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { UserPlus, Loader2, Sparkles } from 'lucide-react';
+import { API_BASE_URL } from '../config';
 
 export default function SignupPage() {
   const navigate = useNavigate();
@@ -14,7 +15,7 @@ export default function SignupPage() {
     setIsSubmitting(true);
     
     try {
-      const res = await fetch('http://localhost:3000/api/register', {
+      const res = await fetch(`${API_BASE_URL}/register`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ name, email, password })

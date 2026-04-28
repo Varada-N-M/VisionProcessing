@@ -1,7 +1,6 @@
 import React, { useState, useRef } from 'react';
 import { Upload, Mic, Play, Loader2, FileText, CheckCircle2 } from 'lucide-react';
-
-const API = 'http://localhost:3000/api';
+import { API_BASE_URL } from '../config';
 const LANG_LABELS = {
   'en-US': '🇺🇸 English (US)',
   'en-IN': '🇮🇳 English (IN)',
@@ -34,7 +33,7 @@ export default function NotesTab({ onConceptsLoaded }) {
         setIsProcessing(true);
         const base64 = ev.target.result.split(',')[1];
         
-        const res = await fetch(`${API}/upload_notes`, {
+        const res = await fetch(`${API_BASE_URL}/upload_notes`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ image_base64: base64 })
@@ -64,7 +63,7 @@ export default function NotesTab({ onConceptsLoaded }) {
     setAudioData(null);
     
     try {
-      const res = await fetch(`${API}/generate_speech`, {
+      const res = await fetch(`${API_BASE_URL}/generate_speech`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

@@ -1,7 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Mic, Target, Loader2, Play, CheckCircle, XCircle, AlertCircle, Headphones, MessageSquare } from 'lucide-react';
-
-const API = 'http://localhost:3000/api';
+import { API_BASE_URL } from '../config';
 const LANG_LABELS = {
   'en-US': '🇺🇸 English (US)',
   'en-IN': '🇮🇳 English (IN)',
@@ -36,7 +35,7 @@ export default function QuizTab({ concepts }) {
     setEvalData(null);
 
     try {
-      const res = await fetch(`${API}/quiz/generate_question`, {
+      const res = await fetch(`${API_BASE_URL}/quiz/generate_question`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -84,7 +83,7 @@ export default function QuizTab({ concepts }) {
             // Get Transcript via Speech To Text
             setStage('evaluating');
             try {
-              const res = await fetch(`${API}/quiz/speech_to_text`, {
+              const res = await fetch(`${API_BASE_URL}/quiz/speech_to_text`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ audio_base64: base64, language: quizLang })
@@ -120,7 +119,7 @@ export default function QuizTab({ concepts }) {
 
   const submitAnswer = async (answerText) => {
     try {
-      const res = await fetch(`${API}/quiz/evaluate_answer`, {
+      const res = await fetch(`${API_BASE_URL}/quiz/evaluate_answer`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

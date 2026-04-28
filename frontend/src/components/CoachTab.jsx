@@ -1,7 +1,6 @@
 import { useMemo, useState } from 'react';
 import { Loader2, MessageCircleHeart, Send } from 'lucide-react';
-
-const API = 'http://localhost:3000/api';
+import { API_BASE_URL } from '../config';
 
 const INTENTS = [
   { value: 'general', label: 'General' },
@@ -57,7 +56,7 @@ export default function CoachTab() {
     setIsLoading(true);
 
     try {
-      const res = await fetch(`${API}/coach/respond`, {
+      const res = await fetch(`${API_BASE_URL}/coach/respond`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
