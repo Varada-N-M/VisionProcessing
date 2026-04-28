@@ -24,7 +24,7 @@ load_dotenv(override=True)
 app = Flask(__name__)
 CORS(app, resources={
     r"/api/*": {
-        "origins": ["http://localhost:8000", "http://localhost:3000", "http://localhost:5173", "http://localhost:5174"],
+        "origins": ["http://localhost:8000", "http://localhost:3000", "http://localhost:5173", "http://localhost:5174","https://visionprocessing-2.onrender.com"],
         "methods": ["GET", "POST", "OPTIONS"],
         "allow_headers": ["Content-Type"],
     }
