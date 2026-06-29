@@ -521,6 +521,34 @@ audio::-webkit-media-controls-time-remaining-display {
   100% { background-position: -200% 0; }
 }
 
+/*
+  Book open from FRONT — left page
+  Pivot: right edge (transformOrigin: right center)
+  Phase 1 (0→40%):  card lifts toward the viewer (+rotateY swings left edge forward)
+  Phase 2 (40→80%): card arcs over and sweeps left into final position
+  Phase 3 (80→100%): gentle overshoot settle
+*/
+@keyframes bookOpenLeft {
+  0%   { transform: translateX(0px)    rotateY(0deg);    }
+  25%  { transform: translateX(-30px)  rotateY(70deg);   }
+  55%  { transform: translateX(-320px) rotateY(-12deg);  }
+  75%  { transform: translateX(-370px) rotateY(4deg);    }
+  100% { transform: translateX(-390px) rotateY(0deg);    }
+}
+
+/*
+  Book open from FRONT — right page
+  Pivot: left edge (transformOrigin: left center)
+  Mirror of bookOpenLeft
+*/
+@keyframes bookOpenRight {
+  0%   { transform: translateX(0px)   rotateY(0deg);   }
+  25%  { transform: translateX(30px)  rotateY(-70deg); }
+  55%  { transform: translateX(320px) rotateY(12deg);  }
+  75%  { transform: translateX(370px) rotateY(-4deg);  }
+  100% { transform: translateX(390px) rotateY(0deg);   }
+}
+
 /* Auth Pages */
 .auth-container {
   display: flex;
