@@ -487,8 +487,7 @@ if __name__ == "__main__":
     print("🚀 Starting Interactive Note Processor server...")
     print("📍 API: http://localhost:3000\n")
     print("── Environment check ──────────────────────────")
-
-    _check("SARVAM_API_KEY",               _os.getenv("SARVAM_API_KEY"))
+    _check("GEMINI_API_KEY",               _os.getenv("GEMINI_API_KEY"))
     _check("SPEECH_KEY",                   _os.getenv("SPEECH_KEY"))
     _check("SPEECH_REGION",                _os.getenv("SPEECH_REGION", "eastus"), secret=False)
     print("───────────────────────────────────────────────\n")

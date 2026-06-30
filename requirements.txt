@@ -9,13 +9,14 @@ flask-cors
 agent-framework-core==1.0.0b260107
 agent-framework-azure-ai==1.0.0b260107
 
-# Sarvam AI (Vision + Chat)
-sarvamai
+# Google Gemini (Vision + Chat)
+google-genai
 requests
 azure-identity
 
 # Image processing
 Pillow
+numpy
 
 # Azure Speech Services
 azure-cognitiveservices-speech
